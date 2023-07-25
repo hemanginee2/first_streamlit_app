@@ -55,8 +55,7 @@ my_cur.execute("insert into fruit_load_list values ('from streamlit') ")
 my_data_rows = my_cur.fetchall()
 streamlit.header("fruit load list contains :")
 streamlit.dataframe(my_data_rows)
-insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST
-values ('jackfruit');
+insert into pc_rivery_db.public.fruit_load_list values ('jackfruit');
 
 
 
