@@ -89,20 +89,40 @@ connection = snowflake.connector.connect(
         schema='public'
     )
 
+    import snowflake.connector
+
+# Function to add a value to the Snowflake table
+def add_value_to_table(value):
+    # Establish a connection to the Snowflake database
+    connection = snowflake.connector.connect(
+        user='your_username',
+        password='your_password',
+        account='your_account',
+        warehouse='your_warehouse',
+        database='your_database',
+        schema='your_schema'
+    )
+
     # Create a cursor to execute SQL queries
     cursor = connection.cursor()
 
-    # Insert the fruit into the database
-    query = f"INSERT INTO fruit_table (fruit_name) VALUES ('{fruit}')"
-    cursor.execute(query)
+    try:
+        # Write and execute the SQL query to insert the value into the table
+        query = f"INSERT INTO your_table_name (column_name) VALUES ('{value}')"
+        cursor.execute(query)
 
-    # Commit the changes and close the connection
-    connection.commit()
-    connection.close()
+        # Commit the changes
+        connection.commit()
+        print("Value added successfully.")
+    except snowflake.connector.errors.ProgrammingError as e:
+        print(f"Error occurred: {e}")
+    finally:
+        # Close the connection
+        cursor.close()
+        connection.close()
 
-# Call the function to add a fruit to the database
-add_my_fruit('jackfruit')
-pip install snowflake-connector-python
+# Call the function to add a value to the table
+add_value_to_table('your_value_here')
 
 
 
