@@ -83,22 +83,51 @@ streamlit.dataframe(my_data_row)
 # streamlit.header("Hello from Snowflake:")
 # streamlit.dataframe(my_data_rows) 
 
-add_my_fruit=  streamlit.text_input("Enter the name of the new fruit:")
-# insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
-# insert_query = f"INSERT INTO fruit_load_list (add_my_fruit)"
-# my_cur.execute(insert_query)
-if add_my_fruit:
-        insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
-        my_cur.execute(insert_query)
+# add_my_fruit=  streamlit.text_input("Enter the name of the new fruit:")
+# # insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
+# # insert_query = f"INSERT INTO fruit_load_list (add_my_fruit)"
+# # my_cur.execute(insert_query)
+# if add_my_fruit:
+#         insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
+#         my_cur.execute(insert_query)
 
-        # Commit the transaction (required for data to be saved)
-        my_cnx.commit()
+#         # Commit the transaction (required for data to be saved)
+#         my_cnx.commit()
 
-        st.text("New fruit added successfully!")
+#         streamlit.text("New fruit added successfully!")
 
 # # Commit the transaction (required for data to be saved)
 # my_cnx.commit()
 # streamlit.text("New fruit added successfully!")
+
+my_cur = my_cnx.cursor()
+
+# Execute the query to select data from the 'fruit_load_list' table
+my_cur.execute("SELECT * FROM fruit_load_list")
+
+# Fetch one row of data
+my_data_row = my_cur.fetchone()
+
+# Display the results
+st.text("Hello from Snowflake:")
+st.text(my_data_row)
+
+# Get user input for the new fruit
+add_my_fruit = st.text_input("Enter the name of the new fruit:")
+
+# Adding a new fruit to the 'fruit_load_list' table if the user provides input
+if add_my_fruit:
+        insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
+        my_cur.execute(insert_query)
+        
+        # Commit the transaction (required for data to be saved)
+        my_cnx.commit()
+        
+        st.text("New fruit added successfully!")
+        
+# Close the cursor and connection
+my_cur.close()
+my_cnx.close()
 
 #streamlit.write ('Thanks for adding', add_my_fruit)
 #my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
