@@ -84,7 +84,7 @@ streamlit.dataframe(my_data_row)
 # streamlit.dataframe(my_data_rows) 
 
 add_my_fruit=  streamlit.text_input("Enter the name of the new fruit:")
-# insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
+insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
 # my_cur.execute(insert_query)
 
 # # Commit the transaction (required for data to be saved)
