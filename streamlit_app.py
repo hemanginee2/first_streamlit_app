@@ -89,7 +89,7 @@ connection = snowflake.connector.connect(
         schema='public'
     )
 
-   # import snowflake.connector
+import snowflake.connector
 # Function to add a value to the Snowflake table
 def add_value_to_table(value):
     # Establish a connection to the Snowflake database
