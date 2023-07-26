@@ -79,8 +79,6 @@ my_cur.execute("SELECT *from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("Hello from Snowflake:")
 streamlit.dataframe(my_data_rows)
-my_cur.execute("insert into fruit_load_list values ('" + add_my_fruit + "')")
-
 
 
 
