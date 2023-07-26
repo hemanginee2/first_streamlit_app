@@ -55,33 +55,20 @@ streamlit.dataframe(fruityvice_normalized)
 #import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 
+
 my_cur = my_cnx.cursor()
-my_cur.execute("SELECT *from fruit_load_list")
-#my_cur.execute("insert into fruit_load_list values ('from streamlit') ")
-my_data_rows = my_cur.fetchall()
-streamlit.header("fruit load list contains :")
-streamlit.dataframe(my_data_rows)
-#my_cur.execute("add_my_fruit('jackfruit')
-my_cur.execute("add_my_fruit('jackfruit')")
-# Assuming you have the add_my_fruit function defined somewhere in your script
-# Function to get the fruit name
-def add_my_fruit(fruit):
-    # Your logic for adding the fruit goes here
-    return fruit
-
-# Call the function to get the fruit name
-fruit = add_my_fruit('jackfruit')
-
-# Use the fruit value in an SQL query
-query = f"INSERT INTO pc_rivery_db.public.fruit_load_list VALUES ('{fruit}')"
-
-# Execute the SQL query
-my_cur.execute(query)
-
-streamlit.write('Thanks for adding', add_my_fruit)
-my_cur.execute("insert into fruit_load_list values ('from streamlit') ")
+my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_data_row = my_cur.fetchone()
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
 
 
+
+
+
+
+
+#
 
 
 
