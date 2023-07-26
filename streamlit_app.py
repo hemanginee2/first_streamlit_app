@@ -76,20 +76,20 @@ streamlit.dataframe(my_data_row)
 
 # my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 # my_cur = my_cnx.cursor()
-my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('jackfruit')")
-#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('jackfruit')")
-my_cur.execute("SELECT *from fruit_load_list")
-my_data_rows = my_cur.fetchall()
-streamlit.header("Hello from Snowflake:")
-streamlit.dataframe(my_data_rows) 
+# my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('jackfruit')")
+# #my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('jackfruit')")
+# my_cur.execute("SELECT *from fruit_load_list")
+# my_data_rows = my_cur.fetchall()
+# streamlit.header("Hello from Snowflake:")
+# streamlit.dataframe(my_data_rows) 
 
 add_my_fruit=  streamlit.text_input("Enter the name of the new fruit:")
-insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
-my_cur.execute(insert_query)
+# insert_query = f"INSERT INTO fruit_load_list (name) VALUES ('{add_my_fruit}')"
+# my_cur.execute(insert_query)
 
-# Commit the transaction (required for data to be saved)
-my_cnx.commit()
-streamlit.text("New fruit added successfully!")
+# # Commit the transaction (required for data to be saved)
+# my_cnx.commit()
+# streamlit.text("New fruit added successfully!")
 
 #streamlit.write ('Thanks for adding', add_my_fruit)
 #my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
