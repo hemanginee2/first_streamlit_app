@@ -113,7 +113,7 @@ streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_row)
 
 # Get user input for the new fruit
-add_my_fruit = st.text_input("Enter the name of the new fruit:")
+add_my_fruit = streamlit.text_input("Enter the name of the new fruit:")
 
 # Adding a new fruit to the 'fruit_load_list' table if the user provides input
 if add_my_fruit:
