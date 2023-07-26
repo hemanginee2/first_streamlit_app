@@ -61,5 +61,5 @@ my_cur.execute("add_my_fruit('jackfruit')")
 #my_cur.execute("insert into fruit_load_list values ('from streamlit') ")
 
 
-
+streamlit.stop()
 
