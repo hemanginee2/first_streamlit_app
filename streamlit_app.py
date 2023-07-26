@@ -75,57 +75,21 @@ streamlit.dataframe(my_data_row)
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
+my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST
+values ('jackfruit')")
 my_cur.execute("SELECT *from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("Hello from Snowflake:")
 streamlit.dataframe(my_data_rows)
 
-connection = snowflake.connector.connect(
-        user='HKARODE',
-        password='Chaitanya@123',
-        account='MQ33616.ca-central-1.aws',
-        warehouse='pc_rivery_wh',
-        database='pc_rivery_db',
-        schema='public'
-    )
 
-import snowflake.connector
-# Function to add a value to the Snowflake table
-def add_value_to_table(value):
-    # Establish a connection to the Snowflake database
-    connection = snowflake.connector.connect(
-        user='HKARODE',
-        password='Chaitanya@123',
-        account='MQ33616.ca-central-1.aws',
-        warehouse='pc_rivery_wh',
-        database='pc_rivery_db',
-        schema='public'
-    )
-
-    # Create a cursor to execute SQL queries
-    cursor = connection.cursor()
-
-    try:
-        # Write and execute the SQL query to insert the value into the table
-        query = f"INSERT INTO your_table_name (column_name) VALUES ('{value}')"
-        cursor.execute(query)
-
-        # Commit the changes
-        connection.commit()
-        print("Value added successfully.")
-    except snowflake.connector.errors.ProgrammingError as e:
-        print(f"Error occurred: {e}")
-    finally:
-        # Close the connection
-        cursor.close()
-        connection.close()
-
-# Call the function to add a value to the table
-add_value_to_table('your_value_here')
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT *from fruit_load_list")
+my_data_rows = my_cur.fetchall()
+streamlit.header("Hello from Snowflake:")
+streamlit.dataframe(my_data_rows)
 
 
-
-
-
-
-
+insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST
+values ('banana')
