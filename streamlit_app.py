@@ -102,7 +102,7 @@ connection = snowflake.connector.connect(
 
 # Call the function to add a fruit to the database
 add_my_fruit('jackfruit')
-
+pip install snowflake-connector-python
 
 
 
