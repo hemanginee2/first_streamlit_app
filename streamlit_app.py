@@ -109,8 +109,8 @@ my_cur.execute("SELECT * FROM fruit_load_list")
 my_data_row = my_cur.fetchone()
 
 # Display the results
-st.text("Hello from Snowflake:")
-st.text(my_data_row)
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
 
 # Get user input for the new fruit
 add_my_fruit = st.text_input("Enter the name of the new fruit:")
@@ -123,7 +123,7 @@ if add_my_fruit:
         # Commit the transaction (required for data to be saved)
         my_cnx.commit()
         
-        st.text("New fruit added successfully!")
+        streamlit.text("New fruit added successfully!")
         
 # Close the cursor and connection
 my_cur.close()
