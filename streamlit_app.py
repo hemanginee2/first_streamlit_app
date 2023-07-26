@@ -57,8 +57,12 @@ streamlit.header("fruit load list contains :")
 streamlit.dataframe(my_data_rows)
 #my_cur.execute("add_my_fruit('jackfruit')
 my_cur.execute("add_my_fruit('jackfruit')")
-fruit = 'jackfruit'
-add_my_fruit(fruit)
+# Assuming the add_my_fruit function returns a value, e.g., a fruit name
+fruit = add_my_fruit('jackfruit')
+
+# Then, use the fruit value in an SQL query
+query = f"INSERT INTO pc_rivery_db.public.fruit_load_list VALUES ('{fruit}');"
+my_cur.execute(query)
 
 streamlit.write('Thanks for adding', add_my_fruit)
 my_cur.execute("insert into fruit_load_list values ('from streamlit') ")
