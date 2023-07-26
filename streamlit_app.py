@@ -63,7 +63,9 @@ streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_row)
 
 
-
+my_data_row = my_cur.fetchone()
+streamlit.header("Hello from Snowflake:")
+streamlit.dataframe(my_data_row)
 
 
 
