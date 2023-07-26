@@ -94,12 +94,12 @@ import snowflake.connector
 def add_value_to_table(value):
     # Establish a connection to the Snowflake database
     connection = snowflake.connector.connect(
-        user='your_username',
-        password='your_password',
-        account='your_account',
-        warehouse='your_warehouse',
-        database='your_database',
-        schema='your_schema'
+        user='HKARODE',
+        password='Chaitanya@123',
+        account='MQ33616.ca-central-1.aws',
+        warehouse='pc_rivery_wh',
+        database='pc_rivery_db',
+        schema='public'
     )
 
     # Create a cursor to execute SQL queries
