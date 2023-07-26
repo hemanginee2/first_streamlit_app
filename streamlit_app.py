@@ -59,7 +59,7 @@ streamlit.dataframe(my_data_rows)
 my_cur.execute("add_my_fruit('jackfruit')")
 streamlit.write('Thanks for adding', add_my_fruit)
 #my_cur.execute("insert into fruit_load_list values ('from streamlit') ")
-set browser.gatherUsageStats to False
+
 
 
 
