@@ -117,7 +117,7 @@ add_my_fruit = streamlit.text_input("Enter the name of the new fruit:")
 
 # Adding a new fruit to the 'fruit_load_list' table if the user provides input
 if add_my_fruit:
-        insert_query = f"INSERT INTO fruit_load_list (\"NAME\") VALUES ('{add_my_fruit}')"
+        insert_query = f"INSERT INTO fruit_load_list VALUES ('{add_my_fruit}')"
         # my_cur.execute(insert_query)
         try:
             my_cur.execute(insert_query)
