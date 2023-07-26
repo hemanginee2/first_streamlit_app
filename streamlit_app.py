@@ -80,6 +80,29 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("Hello from Snowflake:")
 streamlit.dataframe(my_data_rows)
 
+connection = snowflake.connector.connect(
+        user='your_username',
+        password='your_password',
+        account='your_account',
+        warehouse='your_warehouse',
+        database='your_database',
+        schema='your_schema'
+    )
+
+    # Create a cursor to execute SQL queries
+    cursor = connection.cursor()
+
+    # Insert the fruit into the database
+    query = f"INSERT INTO fruit_table (fruit_name) VALUES ('{fruit}')"
+    cursor.execute(query)
+
+    # Commit the changes and close the connection
+    connection.commit()
+    connection.close()
+
+# Call the function to add a fruit to the database
+add_my_fruit('jackfruit')
+
 
 
 
