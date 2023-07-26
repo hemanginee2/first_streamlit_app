@@ -128,6 +128,10 @@ if add_my_fruit:
         my_cnx.commit()
         
         streamlit.text("New fruit added successfully!")
+
+my_data_rows = my_cur.fetchall()
+streamlit.header("Hello from Snowflake:")
+streamlit.dataframe(my_data_rows) 
         
 # Close the cursor and connection
 my_cur.close()
