@@ -129,6 +129,7 @@ if add_my_fruit:
         
         streamlit.text("New fruit added successfully!")
 
+my_cur.execute("SELECT * FROM fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("Hello from Snowflake:")
 streamlit.dataframe(my_data_rows) 
