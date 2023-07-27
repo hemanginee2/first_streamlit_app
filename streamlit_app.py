@@ -23,7 +23,6 @@ my_fruit_list = my_fruit_list.set_index( 'Fruit' )
 streamlit.dataframe(my_fruit_list)
 
 
-
 # Let's put a pick list here so they can pick the fruit they want to include 
 streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 
@@ -45,9 +44,11 @@ streamlit.write('The user entered ', fruit_choice)
 
 #import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
 # take the json versionof the response and normalize it
 # write your own comment -what does the next line do? 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response())
+#fruityvice_normalized = pandas.json_normalize(fruityvice_response())
+
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # take the json versionof the response and normalize it
