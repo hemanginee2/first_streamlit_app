@@ -117,8 +117,8 @@ streamlit.header("Hello from Snowflake:")
 streamlit.dataframe(my_data_rows) 
         
 # Close the cursor and connection
-my_cur.close()
-my_cnx.close()
+# my_cur.close()
+# my_cnx.close()
 
 streamlit.write ('Thanks for adding', add_my_fruit)
 my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
