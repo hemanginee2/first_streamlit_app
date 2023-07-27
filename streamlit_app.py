@@ -130,7 +130,7 @@ streamlit.dataframe(my_data_rows)
 # my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
 
 # create a repeatable code block (called a function)
-def get_fruitvice_data
+def get_fruityvice_data
 fruityvice_response = request.get("https://fruityvice.com/api/fruit/" + this fruit_choice)
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 return fruityvice_normalized
