@@ -41,8 +41,18 @@ streamlit.dataframe( fruits_to_show )
 
 # display fruityvice API responce
 streamlit.header("Fruityvice Fruit Advice!")
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-# streamlit.write('The user entered ', fruit_choice)
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+  if not fruit_choice:
+      streamlit.error('Please select a fruit to get information.')
+  else:
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+      streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+    streamlit.error()
+  
+streamlit.write('The user entered ', fruit_choice)
 
 # import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/Watermelon")
@@ -112,28 +122,3 @@ streamlit.header("Fruityvice Fruit Advice!")
 #     streamlit.dataframe(fruityvice_normalized)
 # except URLError as e:
 #     streamlit.error()
-st.header("Fruityvice Fruit Advice!")
-
-try:
-    fruit_choice = st.text_input('What Fruit would you like information about?')
-
-    if not fruit_choice:
-        st.error('Please select a fruit to get information.')
-    else:
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-
-        if fruityvice_response.status_code == 404:
-            st.error('Fruit not found. Please enter a valid fruit name.')
-        elif not fruityvice_response.json():
-            st.error('No data available for this fruit.')
-        else:
-            fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-            st.dataframe(fruityvice_normalized)
-except requests.exceptions.RequestException as e:
-    st.error('Error fetching data from the API. Please try again later.')
-         
-         
-      
-   
-
-
