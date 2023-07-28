@@ -83,11 +83,11 @@ try:
 # streamlit.text(fruityvice_response.json())
 
 # write your own comment -what does the next line do? 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
-streamlit.dataframe(fruityvice_normalized)
+# streamlit.dataframe(fruityvice_normalized)
 
-streamlit.stop()
+# streamlit.stop()
 # # import snowflake.connector
 # # my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 # # my_cur = my_cnx.cursor()
@@ -110,9 +110,9 @@ streamlit.stop()
 # streamlit.header("The fruit load list contain")
 # streamlit.dataframe(my_data_rows)
 
-streamlit.header("Fruityvice Fruit Advice!")
-add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-streamlit.write('Thanks for adding jack fruit ',  add_my_fruit)
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+# streamlit.header("Fruityvice Fruit Advice!")
+# add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+# streamlit.write('Thanks for adding jack fruit ',  add_my_fruit)
+# my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
 
