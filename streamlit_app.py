@@ -53,8 +53,8 @@ streamlit.dataframe( fruits_to_show )
 # streamlit.header("Fruityvice Fruit Advice!")
 
     
-except URLError as e:
-    streamlit.error()
+# except URLError as e:
+#     streamlit.error()
 
 # create the repeatable code block  (called a function)
 def get_fruityvice_data(tghis_fruit_choice):
