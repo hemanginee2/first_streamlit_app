@@ -76,7 +76,7 @@ try:
 
 # import requests
 # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/Watermelon")
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+# fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 streamlit.text(fruityvice_response)
 
