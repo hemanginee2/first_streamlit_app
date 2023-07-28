@@ -39,19 +39,37 @@ streamlit.dataframe( fruits_to_show )
 
 
 
+# # display fruityvice API responce
+# streamlit.header("Fruityvice Fruit Advice!")
+# try:
+#   fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+#   if not fruit_choice:
+#       streamlit.error('Please select a fruit to get information.')
+#   else:
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+      streamlit.dataframe(fruityvice_normalized)
 # display fruityvice API responce
 streamlit.header("Fruityvice Fruit Advice!")
+
+    
+except URLError as e:
+    streamlit.error()
+
+# create the repeatable code block  (called a function)
+def get_fruityvice_data(tghis_fruit_choice):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()
+    return fruitvice_normlized
 try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
   if not fruit_choice:
       streamlit.error('Please select a fruit to get information.')
   else:
-      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-      streamlit.dataframe(fruityvice_normalized)
-except URLError as e:
-    streamlit.error()
-  
+      back_from_function = get_fruitvice_data(fruit_choice)
+      streamlit.dataframe(back_from_function)
+
+
 streamlit.write('The user entered ', fruit_choice)
 
 # import requests
@@ -96,29 +114,3 @@ streamlit.write('Thanks for adding jack fruit ',  add_my_fruit)
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
 
-# new section to display fruityvice API responce
-streamlit.header("Fruityvice Fruit Advice!")
-# try:
-#    fruit_choice = streamlit.text_input('What Fruit would you like information about?')
-#    if not fruit_choice:
-#         streamlit.error('Please select a fruit to get information.')
-#    else:
-#         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-#         fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-#         streamlit.dataframe(fruityvice_normalized)
-                
-# except URLError as e:
-#     streamlit.error()
-
-# new section to display fruityvice API responce
-# streamlit.header("Fruityvice Fruit Advice!")
-# try:
-#   fruit_choice = streamlit.text_input('What Fruit would you like information about?')
-#   if not fruit_choice:
-#     streamlit.error('Please select a fruit to get information.')
-#   else:
-#     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-#     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-#     streamlit.dataframe(fruityvice_normalized)
-# except URLError as e:
-#     streamlit.error()
