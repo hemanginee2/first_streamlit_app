@@ -85,6 +85,8 @@ my_cur.execute(f"INSERT INTO fruit_load_list VALUES ('{add_my_fruit}')")
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 
 streamlit.write('Thanks for adding ', add_my_fruit)
+my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
+
 # streamlit.stop()
 
 
