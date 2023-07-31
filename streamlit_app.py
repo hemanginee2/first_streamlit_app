@@ -46,10 +46,10 @@ try:
     # if not fruit_choice:
     #       streamlit.error("Please select a fruit to 
     if not fruit_choice:
-                streamlit.error('Please select a fruit to get information.')
-        else:
-                back_from_function = get_fruityvice data(fruit_choice)
-                streamlit.dataframe(back_from_function)
+        streamlit.error('Please select a fruit to get information.')
+    else:
+        back_from_function = get_fruityvice data(fruit_choice)
+        streamlit.dataframe(back_from_function)
 
     
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
