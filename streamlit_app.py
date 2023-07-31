@@ -78,15 +78,16 @@ my_data_rows = my_cur.fetchall()
 streamlit.header(" The Fruit Load List Contais:")
 # streamlit.text(my_data_row)
 # streamlit.dataframe(my_data_row)
-add_my_fruit = streamlit.text_input("Enter the name of the new fruit:")
-# fruit_choice = streamlit.text_input('What fruit would you like to add?',)
-my_cur.execute(f"INSERT INTO fruit_load_list VALUES ('{add_my_fruit}')")
-# fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
+#===========
+# add_my_fruit = streamlit.text_input("Enter the name of the new fruit:")
+# # fruit_choice = streamlit.text_input('What fruit would you like to add?',)
+# my_cur.execute(f"INSERT INTO fruit_load_list VALUES ('{add_my_fruit}')")
+# # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+# fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 
-streamlit.write('Thanks for adding ', add_my_fruit)
-my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
-
+# streamlit.write('Thanks for adding ', add_my_fruit)
+# my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
+#=============================
 streamlit.stop()
 
 
