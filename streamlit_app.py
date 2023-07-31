@@ -42,7 +42,7 @@ streamlit.dataframe( fruits_to_show )
 # streamlit.write('The user entered ', fruit_choice)
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-    fruit_choice = streamlit.text_input('What fruit would you like to add?','kiwi')
+    fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
     # if not fruit_choice:
     #       streamlit.error("Please select a fruit to 
     if not fruit_choice:
@@ -55,7 +55,7 @@ except URLError as e:
     streamlit.error()
 
     
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+
 # streamlit.write('The user entered ', fruit_choice)
 
 # import requests
@@ -75,7 +75,7 @@ my_cur.execute("SELECT *from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 # streamlit.text("Hello from Snowflake:")
 # streamlit.text(" The Fruit Load List Contais:")
-streamlit.header(" The Fruit Load List Contais:")
+# streamlit.header(" The Fruit Load List Contais:")
 # streamlit.text(my_data_row)
 # streamlit.dataframe(my_data_row)
 #===========
