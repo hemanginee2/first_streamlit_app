@@ -127,13 +127,30 @@ if streamlit.button ('Add a fruit to list'):
     back_from_function = insert_row_snowflake(add_my_fruit)
     streamlit.dataframe (back_from_function)
 #===========challenge
+# def insert_row_snowflake(new_fruit):
+#     with my_cnx.cursor() as my_cur:
+#         my_cur.execute("insert into fruit_load_list" values (%s), + (new_fruit,))
+#         my_cnx.commit()  
+#         return "Thanks for adding" + new_fruit
+        
 def insert_row_snowflake(new_fruit):
     with my_cnx.cursor() as my_cur:
-        my_cur.execute("insert into fruit_load_list" values (%s), + (new_fruit,))
-        my_cnx.commit()  
-        return "Thanks for adding" + new_fruit
-        
+        query = "INSERT INTO fruit_load_list VALUES (%s)"
+        my_cur.execute(query, (new_fruit,))
+        my_cnx.commit()  # Commit the transaction to save changes
+        return "Thanks for adding " + new_fruit
 
+def add_fruits_to_list():
+    # List of fruits to add
+    fruits_to_add = ["jackfruit", "papaya", "guava", "kiwi"]
+
+    # Adding fruits to the list in the database
+    for fruit in fruits_to_add:
+        response = insert_row_snowflake(fruit)
+        print(response)  # Optional: Print the response for each fruit
+
+# Call the function to add the fruits to the list
+add_fruits_to_list()
 
 
 # streamlit.stop()
