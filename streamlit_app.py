@@ -87,7 +87,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_
 streamlit.write('Thanks for adding ', add_my_fruit)
 my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
 
-# streamlit.stop()
+streamlit.stop()
 
 
 
