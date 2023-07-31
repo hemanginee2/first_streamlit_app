@@ -127,21 +127,21 @@ streamlit.header(" The Fruit Load List Contais:")
 #     back_from_function = insert_row_snowflake(add_my_fruit)
 #     streamlit.dataframe (back_from_function)
 #===========challenge
-def insert_row_snowflake(new_fruit):
-    with my_cnx.cursor() as my_cur:
-        my_cur.execute("insert into fruit_load_list values (%s),(new_fruit,)")
-        my_cnx.commit()  
-        return "Thanks for adding" + new_fruit
+# def insert_row_snowflake(new_fruit):
+#     with my_cnx.cursor() as my_cur:
+#         my_cur.execute("insert into fruit_load_list values (%s),(new_fruit,)")
+#         my_cnx.commit()  
+#         return "Thanks for adding" + new_fruit
 
     
                     
         
-# def insert_row_snowflake(new_fruit):
-#     with my_cnx.cursor() as my_cur:
-#         query = "INSERT INTO fruit_load_list VALUES (%s)"
-#         my_cur.execute(query, (new_fruit,))
-#         my_cnx.commit()  # Commit the transaction to save changes
-#         return "Thanks for adding " + new_fruit
+def insert_row_snowflake(new_fruit):
+    with my_cnx.cursor() as my_cur:
+        query = "INSERT INTO fruit_load_list VALUES (%s)"
+        my_cur.execute(query, (new_fruit,))
+        my_cnx.commit()  # Commit the transaction to save changes
+        return "Thanks for adding " + new_fruit
 
 def add_fruits_to_list():
     # List of fruits to add
