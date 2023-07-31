@@ -96,7 +96,7 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.header(" The Fruit Load List Contais:")
 # snowflake related functions
 def get_fruit_load_list():
-    with my_cnx_cursor() as my_cur:
+    with my_cnx.cursor() as my_cur:
         my_cur.execute("select * from fruit_load_list")
         return my_cur.fatchall()
 #add a button to load the fruit
